@@ -18,7 +18,7 @@ export default {
       info.value = res
     })
     onUnmounted(() => {
-      emitter.on('brotherChange')
+      emitter.off('brotherChange')
     })
 
     return {
