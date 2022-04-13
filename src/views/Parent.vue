@@ -2,6 +2,12 @@
   <!-- @change为监听事件 -->
   <Child :msg="pMsg" @change="getChildInfo" ref="refChild"></Child>
   <button @click="sendValue">获取子组件数据</button>
+
+  <!-- 测试v-for and v-if -->
+  <ul v-if="false">
+    <li v-for="(index, list) in lists" :key="index">{{list}}</li>
+  </ul>
+
 </template>
 
 <script>
@@ -14,6 +20,8 @@ export default {
     Child
   },
   setup (props, context) {
+    const lists = ['1', '2', '3']
+
     const pMsg = ref('传给子组件的数据')
     const getChildInfo = (v) => {
       console.log(v)
@@ -29,6 +37,7 @@ export default {
     }
 
     return {
+      lists,
       pMsg,
       getChildInfo,
       refChild,
